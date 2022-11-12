@@ -31,12 +31,18 @@ if ( is_array( $user_obj ) ) {
         ?>
         <h1>List User</h1>
         <table>
-            <tr> <th>Serial Number</th> <th>Email</th> <th>Password</th> </tr>
+            <tr> <th>Serial Number</th> <th>Email</th> <th>Password</th> <th>Permission</th> </tr>
         <?php
         foreach ($list as $value) {
             echo "<tr>";
-            foreach ($value as $_value) {
-                 echo "<td>$_value</td>"; 
+            echo "<td>".$value['ID']."</td>";
+            echo "<td>".$value['EMAIL']."</td>";
+            echo "<td>".$value['PASSWORD']."</td>";
+            if(empty($value['PERMISSION'])) {
+                echo "<td> NULL </td>";
+            }
+            else {
+                echo "<td>".$value['PERMISSION']."</td>";
             }
             echo "</tr>";
         }
