@@ -22,42 +22,5 @@ class Users {
         }
     }
 }
-
-$user = new Users();
-$user_obj = $user->getAllUsers();
-if ( is_array( $user_obj ) ) {
-    if ( $user_obj[ 'success' ] ) {
-        $list= $user_obj[ 'data' ];
-        ?>
-        <h1>List User</h1>
-        <table>
-            <tr> <th>Serial Number</th> <th>Email</th> <th>Password</th> <th>Permission</th> </tr>
-        <?php
-        foreach ($list as $value) {
-            echo "<tr>";
-            echo "<td>".$value['ID']."</td>";
-            echo "<td>".$value['EMAIL']."</td>";
-            echo "<td>".$value['PASSWORD']."</td>";
-            if(empty($value['PERMISSION'])) {
-                echo "<td> NULL </td>";
-            }
-            else {
-                echo "<td>".$value['PERMISSION']."</td>";
-            }
-            echo "</tr>";
-        }
-    } else if ( $user_obj[ 'success' ] == 0 ) {
-        echo $user_obj[ 'data' ];
-    }
-} else if ( get_class( $user_obj ) === 'PDOException' ) {
-    $error = $user_obj->getCode();
-    if ( $error == 23000 ) {
-        echo ' Dublication keys';
-    } else {
-        echo "$error";
-    }
-} else {
-    echo 'Something went wrong';
-}
 ?>
 

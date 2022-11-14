@@ -130,11 +130,11 @@
           $password =  $row['PASSWORD'];
           $permission =  $row['PERMISSION_LEVEL'];
           //print_r(array_values($user));
-          print_r("ID IS $id  EMAIL is $email PASSWORD $password permission $permission");
+          //print_r("ID IS $id  EMAIL is $email PASSWORD $password permission $permission");
           $user = array("ID"=>$row['ID'],"EMAIL"=>$row['EMAIL'],"PASSWORD"=>$row['PASSWORD'],"PERMISSION"=>$row['PERMISSION_LEVEL']);
           // Push to "data"
           array_push($users_arr, $user);
-          echo "<br>";
+          //echo "<br>";
         }
         return array( "success" => 1, "message" => "user gets !", "data" => $users_arr );
 

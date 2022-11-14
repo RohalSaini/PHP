@@ -1,3 +1,4 @@
-<form action="./user/authenticate.php" method="post">
+
+<form action="" method="post">
 <?php include 'form.php';?>
 </form> 
